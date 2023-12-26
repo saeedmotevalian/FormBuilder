@@ -1,0 +1,15 @@
+<div class="w-100">
+  @for (input of json; track $index) {
+  <div class="d-flex">
+    <app-custom-input class="w-100" [title]="input.title" [key]="input.key" [type]="input.type" [disabled]="true"
+                      [required]="input.required" [options]="input.options"></app-custom-input>
+    <mat-icon (click)="onInputRemoved($index)" class="m-auto">delete</mat-icon>
+  </div>
+  }
+  <div class="d-flex">
+    <app-custom-input (click)="onAddMoreClicked()" [type]="'button'"
+                      [value]="'AddMore'"></app-custom-input>
+    <app-custom-input (click)="onCreateClicked()" [type]="'button'"
+                      [value]="'Save'"></app-custom-input>
+  </div>
+</div>

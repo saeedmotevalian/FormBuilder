@@ -1,0 +1,8 @@
+<div class="d-flex">
+  <div class="w-50">
+    <app-editor [(json)]="json" [formId]="formId"></app-editor>
+  </div>
+  <div class="w-50">
+    <app-viewer (onSubmit)="onSubmit($event)" [(json)]="json" [formId]="formId"></app-viewer>
+  </div>
+</div>

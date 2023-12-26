@@ -1,0 +1,38 @@
+<h2 mat-dialog-title>Add Input</h2>
+<mat-dialog-content>
+  <div>
+    <div class="w-100">
+      <div class="row">
+        <div class="col-12">
+          <app-custom-input [(value)]="title" [required]="true" [title]="'Title'" [type]="'text'"></app-custom-input>
+        </div>
+        <div class="col-12">
+          <app-custom-input [(value)]="key" [required]="true" [title]="'Key'" [type]="'text'"></app-custom-input>
+        </div>
+        <div class="col-12">
+          <app-custom-input [(value)]="type"
+                            [options]="[{label: 'text'}, {label: 'textarea'}, {label: 'password'}, {label: 'number'}, {label: 'date'}, {label: 'time'}, {label: 'select'}, {label: 'radio'}, {label: 'checkbox'}]"
+                            [required]="true" [title]="'Type'"
+                            [type]="'select'"></app-custom-input>
+        </div>
+        @if (['radio', 'select'].includes(type!)) {
+        Options
+        @for (option of options; track $index) {
+        <app-custom-input [(value)]="option.label" [type]="'text'"></app-custom-input>
+        }
+        <app-custom-input (click)="onAddOptionClicked()" [type]="'button'" [value]="'Add'"></app-custom-input>
+        }
+        <div class="col-12">
+          <app-custom-input [(value)]="required" [title]="'Required'" [type]="'checkbox'"></app-custom-input>
+        </div>
+        <div class="col-12">
+          <app-custom-input [(value)]="disabled" [title]="'Disabled'" [type]="'checkbox'"></app-custom-input>
+        </div>
+      </div>
+    </div>
+  </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <app-custom-input (click)="onSubmitClicked()" [type]="'button'"
+                    [value]="'Submit'"></app-custom-input>
+</mat-dialog-actions>

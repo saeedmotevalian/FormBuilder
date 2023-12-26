@@ -1,0 +1,36 @@
+<div class="p-2">
+  <span class="d-flex">
+    {{ title }}
+    @if (required) {
+    *
+    }
+  </span>
+  @switch (type) {
+  @case ('select') {
+  <select (change)="onChange($event)" [(ngModel)]="value" [disabled]="disabled" class="w-100 input-height">
+    <option *ngFor="let option of options" [value]="option.label">{{ option.label }}</option>
+  </select>
+  }
+  @case ('radio') {
+  <div>
+        <span *ngFor="let option of options" class="w-100">
+          <input (change)="onChange($event)" [(ngModel)]="value" [disabled]="disabled" [name]="key!" [value]="option.label"
+                 type="radio"> {{ option.label }}
+        </span>
+  </div>
+  }
+  @case ('textarea') {
+  <textarea (change)="onChange($event)" [(ngModel)]="value" [disabled]="disabled" [required]="required"
+            [title]="title"
+            class="w-100"></textarea>
+  }
+  @case ('checkbox') {
+  <input (change)="onChange($event)" [checked]="value" [disabled]="disabled" [required]="required" [title]="title"
+         [type]="type"/>
+  }
+  @default {
+  <input (change)="onChange($event)" [(ngModel)]="value" [disabled]="disabled" [required]="required" [title]="title"
+         [type]="type" class="w-100 input-height"/>
+  }
+  }
+</div>

@@ -1,0 +1,15 @@
+<div class="w-100">
+  @for (input of json; track $index) {
+  <app-custom-input [(value)]="input.value" [title]="input.title" [key]="input.key" [type]="input.type"
+                    [disabled]="input.disabled"
+                    [required]="input.required" [options]="input.options"></app-custom-input>
+  }
+  <div class="d-flex">
+    @if (formId) {
+    <app-custom-input (click)="onSubmitClicked()" [type]="'button'"
+                      [value]="'Submit'"></app-custom-input>
+    }
+    <app-custom-input (click)="onResetClicked()" [type]="'button'"
+                      [value]="'Reset'"></app-custom-input>
+  </div>
+</div>

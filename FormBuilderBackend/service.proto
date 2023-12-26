@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+import "google/protobuf/any.proto";
+
+package service;
+
+message Request {
+  string command = 1;
+  google.protobuf.Any requestData = 2;
+}
+
+message Response {
+  google.protobuf.Any responseData = 1;
+}
+
+service Service {
+  rpc callCommand (Request) returns (Response);
+}

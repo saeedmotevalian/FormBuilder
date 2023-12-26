@@ -1,0 +1,11 @@
+<div class="container d-flex align-items-center justify-content-center">
+  <div>
+    <app-custom-input [(value)]="username" [required]="true" [title]="'Username'" [type]="'text'"></app-custom-input>
+    <app-custom-input [(value)]="password" [required]="true" [title]="'Password'"
+                      [type]="'password'"></app-custom-input>
+    <app-custom-input (click)="onSignInClicked()" [type]="'button'"
+                      [value]="'SignIn'"></app-custom-input>
+    <app-custom-input (click)="onSignUpClicked()" [type]="'button'"
+                      [value]="'SignUp'"></app-custom-input>
+  </div>
+</div>

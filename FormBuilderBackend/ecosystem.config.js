@@ -1,0 +1,51 @@
+module.exports = {
+    apps: [{
+        name: 'form-builder',
+        script: 'server.js',
+        cwd: '',
+        exec_mode: 'cluster',
+        instances: 1,
+        watch: true,
+        restart_delay: 4000,
+        max_restarts: 100,
+        max_memory_restart: '1400M',
+        env: {
+            APPLICATION_NAME: 'form-builder',
+            PORT: 3010,
+            NODE_ENV: 'development',
+            COMMAND_DATABASE_HOST: '192.168.1.153',
+            COMMAND_DIAlECT: 'postgres',
+            COMMAND_DATABASE_USERNAME: 'postgres',
+            COMMAND_DATABASE_PASSWORD: 'root',
+            COMMAND_DATABASE_NAME: 'form_builder',
+            QUERY_DATABASE_HOST: '192.168.1.153',
+            QUERY_DIAlECT: 'postgres',
+            QUERY_DATABASE_USERNAME: 'postgres',
+            QUERY_DATABASE_PASSWORD: 'root',
+            QUERY_DATABASE_NAME: 'form_builder',
+            SESSION_IN_MEMORY_DATABASE_HOST: 'localhost',
+            SESSION_IN_MEMORY_DATABASE_DIAlECT: 'redis',
+            SESSION_IN_MEMORY_DATABASE_USERNAME: '',
+            SESSION_IN_MEMORY_DATABASE_PASSWORD: '',
+            SESSION_IN_MEMORY_DATABASE_PORT: 6379,
+            SESSION_IN_MEMORY_DATABASE_AGE: 60,
+            DATA_IN_MEMORY_DATABASE_HOST: 'localhost',
+            DATA_IN_MEMORY_DATABASE_DIAlECT: 'redis',
+            DATA_IN_MEMORY_DATABASE_USERNAME: '',
+            DATA_IN_MEMORY_DATABASE_PASSWORD: '',
+            DATA_IN_MEMORY_DATABASE_PORT: 6379,
+            DATA_IN_MEMORY_DATABASE_AGE: 60,
+            MESSAGE_BROKER_HOST: 'localhost',
+            MESSAGE_BROKER_PORT: 5672,
+            MESSAGE_BROKER_USERNAME: 'sama',
+            MESSAGE_BROKER_PASSWORD: 'sama',
+            DISCOVERY_HOST: 'localhost',
+            DISCOVERY_PORT: 8761,
+            RPC_PORT: 30077,
+            TRACING_URL: 'https://77353248038346de9f86e72660c1f121@sentry.kube.samasoft.ir/2'
+        },
+        env_development: {
+            NODE_ENV: 'development'
+        }
+    }]
+};
